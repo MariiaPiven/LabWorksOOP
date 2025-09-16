@@ -1,0 +1,42 @@
+using System;
+
+
+class Program
+{
+    static void Main()
+    {
+        double first;
+        while (true)
+        {
+            Console.Write("Введіть перший член прогресії: ");
+            string? input = Console.ReadLine();
+            if (input != null && double.TryParse(input, out first))
+                break;
+            Console.WriteLine("Хибне значення! Введіть число.");
+        }
+double d;
+        while (true)
+        {
+            Console.Write("Введіть різницю d: ");
+            string? input = Console.ReadLine();
+            if (input != null && double.TryParse(input, out d))
+                break;
+            Console.WriteLine("Хибне значення! Введіть число.");
+        }
+
+
+        int n;
+        while (true)
+        {
+            Console.Write("Введіть кількість членів n: ");
+            string? input = Console.ReadLine();
+            if (input != null && int.TryParse(input, out n) && n > 0)
+                break;
+            Console.WriteLine("Хибне значення! Введіть додатне ціле число.");
+        }
+
+
+        ArithmeticProgression ap = new ArithmeticProgression(first, d, n);
+        Console.WriteLine($"Сума прогресії: {ap.Sum()}");
+    }
+}
